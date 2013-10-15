@@ -30,10 +30,10 @@ def sayit():
         print "---Message is", sayText
         subprocess.Popen(['espeak', lang, gap, spd, sayText], stdout=subprocess.PIPE)
         if request.form['saveaswav']:
-            strippedName = "".join([c for c in sayText if c.isalpha() or c.isdigit() or c==' ']).rstrip()
+            strippedName = "".join([c for c in sayText if c.isalpha() or c.isdigit()]).rstrip()
             print("save as wav")
-#            sfile = "-w 'audio/ttsout/" + strippedName + lang + gap + spd + ".wav'"
-            sfile = "-w audio//something.wav"
+            sfile = "-w " + strippedName + lang + gap + spd + ".wav"
+#            sfile = "-w audio//something.wav"
             print sfile
             subprocess.Popen(['espeak', lang, gap, spd, sfile, sayText]).stdout
             stdOut = subprocess.Popen(['pwd'], shell=True).stdout
