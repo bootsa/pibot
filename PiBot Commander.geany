@@ -1,0 +1,35 @@
+[file_prefs]
+final_new_line=true
+ensure_convert_new_lines=false
+strip_trailing_spaces=false
+replace_tabs=false
+
+[indentation]
+indent_width=4
+indent_type=0
+indent_hard_tab_width=8
+detect_indent=false
+detect_indent_width=false
+indent_mode=2
+
+[project]
+name=PiBot Commander
+base_path=/home/steph/projects/hg_pibot/webcommander
+description=
+file_patterns=
+
+[long line marker]
+long_line_behaviour=1
+long_line_column=72
+
+[files]
+current_page=3
+FILE_NAME_0=678;HTML;0;16;1;1;0;%2Fhome%2Fsteph%2Fprojects%2Fhg_pibot%2Fwebcommander%2Ftemplates%2Fbase.html;0;4
+FILE_NAME_1=269;HTML;0;16;2;1;0;%2Fhome%2Fsteph%2Fprojects%2Fhg_pibot%2Fwebcommander%2Ftemplates%2Fplay.html;0;4
+FILE_NAME_2=700;HTML;0;16;0;1;0;%2Fhome%2Fsteph%2Fprojects%2Fhg_pibot%2Fwebcommander%2Ftemplates%2Fsay.html;0;4
+FILE_NAME_3=1336;Python;0;16;0;1;0;%2Fhome%2Fsteph%2Fprojects%2Fhg_pibot%2Fwebcommander%2Fwebcommander.py;0;4
+FILE_NAME_4=192;Sh;0;16;0;1;0;%2Fhome%2Fsteph%2Fprojects%2Fhg_pibot%2Fwebcommander%2Fprep.sh;0;4
+FILE_NAME_5=0;Sh;0;16;0;1;0;%2Fhome%2Fsteph%2FBits%2Fcpd4t%2Frpi%2Fraspi-leader%2Fnetworkstart.sh;0;4
+
+[VTE]
+last_dir=/home/steph

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block body %}
+<div data-role="header">
+  <h1>Make me talk!</h1>
+</div>
+
+<div data-role="content">
+
+<form method="post" action="/say/">
+  <label for="words">Say:</label>
+  <input type="text" name="words" id="words" autofocus />  
+  <br />
+  <fieldset>
+   <legend>Options:</legend>
+   <br />
+   English Type:
+   <select name="language" id="language">
+	  <option value="en" selected>British</option>
+	  <option value="en-sc">Scottish</option>
+	  <option value="en-rp">RP</option>
+	  <option value="en-n">Lancashire</option>
+	  <option value="en-wm">West Midlands</option>
+	  <option value="en-us">American</option>
+	  <option value="en-us">West Indies</option>
+   </select>
+   <br />
+   Variation:
+   <select name="variation" id="variation">
+	  <option value="" selected>- None -</option>
+	  <option value="+m1">Male 1</option>
+	  <option value="+m2">Male 2</option>
+	  <option value="+m3">Male 3</option>
+	  <option value="+m4">Male 4</option>
+	  <option value="+m5">Male 5</option>
+	  <option value="+m6">Male 6</option>
+	  <option value="+m7">Male 7</option>
+	  <option value="+f1">Female 1</option>
+	  <option value="+f2">Female 2</option>
+	  <option value="+f3">Female 3</option>
+	  <option value="+f4">Female 4</option>
+	  <option value="+croak">Croak</option>
+	  <option value="+whisper">Whisper</option>
+   </select>
+   <br />
+   <label for="speed">Speed (80-450):</label>
+   <input type="range" name="speed" id="speed" min="80" max="450" step="5" value="175" />
+   <br />
+   <label for="wordgap">Word gap (multiples of 10mS):</label>
+   <input type="range" name="wordgap" id="wordgap" min="0" max="50" step="1" value="1" />  
+   <br />
+   <label for="saveaswav">Save as WAV file</label>
+   <input type="checkbox" name="saveaswav" id="saveaswav" />  
+  </fieldset>
+  <input type="submit" value="Say It!" />
+</form>
+
+{% if value %}
+<p>Message sent: {{ value }}</p>
+{% endif %}
+{% if wavFile %}
+<p>File saved as: {{ wavFile }}</p>
+{% endif %}
+
+</div>
+{% endblock %}
+
+
