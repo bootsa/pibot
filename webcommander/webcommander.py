@@ -45,14 +45,17 @@ def sayit():
 
 @app.route("/play/", methods=['GET','POST'])
 def playit():
+    fileList = None
     if request.method == 'POST':
         #initialise the mixer to 44.1khz, 16bit, 2channel with 4096 buffer
         pygame.mixer.pre_init(44100, 16, 2, 4096)
         pygame.mixer.init()
         
         #load the sound
-        snd = pygame.mixer.Sound(request.form['audiofile'])
-        snd.set_volume(request.form['audiovolume'])
+#        snd = pygame.mixer.Sound(request.form['audiofile'])
+#        snd.set_volume(request.form['audiovolume'])
+        snd = pygame.mixer.Sound('bell.wav')
+        snd.set_volume(0.8)
         
         #play it
         snd.play()
@@ -62,8 +65,7 @@ def playit():
             pass
     else:
         fileChoice = None
-    return render_template('play.html', value=fileChoice)
-    
+    return render_template('play.html', files=fileList, value=fileChoice)
 
 
 if __name__ == "__main__":
