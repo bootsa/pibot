@@ -48,17 +48,17 @@
    <label for="wordgap">Word gap (multiples of 10mS):</label>
    <input type="range" name="wordgap" id="wordgap" min="0" max="50" step="1" value="1" />  
    <br />
-   <label for="saveaswav">Save as WAV file</label>
+   <label for="saveaswav">Save WAV file</label>
    <input type="checkbox" name="saveaswav" id="saveaswav" />  
   </fieldset>
   <input type="submit" value="Say It!" />
 </form>
 
-{% if value %}
-<p>Message sent: {{ value }}</p>
+{% if sayText %}
+<p>Text said: {{ sayText }}</p>
 {% endif %}
 {% if wavFile %}
-<p>File saved as: {{ wavFile }}</p>
+<p>File saved as: <a href="/download/{{ wavFile }}">{{ wavFile }}</a></p>
 {% endif %}
 
 </div>

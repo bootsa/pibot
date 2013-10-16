@@ -1,47 +1,35 @@
 #!flask/bin/python
 
 from flask import Flask
-from flask import render_template, request
+from flask import render_template, request, send_file
 import subprocess
 import string
 #import pygame.mixer
 
-app = Flask(__name__)
+app = Flask(__name__.split('.')[0])
 
-print("Here")
-
-#@app.route("/index")
-#def showit():
-#    return render_template('say.html')
+print("Server started...")
 
 @app.route("/say/", methods=['GET','POST'])
-#@app.route("/say/<someWords>", methods=['GET','POST'])
+#@app.route("/say/<string:someWords>", methods=['GET','POST'])
 def sayit():
-    sfile = None
-    print("say IT!")
+    sText = None
+    sFile = None
     if request.method == 'POST':
-        print(request.form)
-        sayText = request.form['words']
+        sText = request.form['words']
         lang = "-v" + request.form['language'] + request.form['variation']
-        print("Language " + lang)
         gap = "-g" + request.form['wordgap']
         spd = "-s" + request.form['speed']
         # Get the value from the submitted form
-        print "---Message is", sayText
-        subprocess.Popen(['espeak', lang, gap, spd, sayText], stdout=subprocess.PIPE)
+        print "---Message is: ", sText
+        subprocess.Popen(['espeak', lang, gap, spd, sText], stdout=subprocess.PIPE)
         if request.form['saveaswav']:
-            strippedName = "".join([c for c in sayText if c.isalpha() or c.isdigit()]).rstrip()
-            print("save as wav")
-            sfile = "-w " + strippedName + lang + gap + spd + ".wav"
-#            sfile = "-w audio//something.wav"
-            print sfile
-            subprocess.Popen(['espeak', lang, gap, spd, sfile, sayText]).stdout
-            stdOut = subprocess.Popen(['pwd'], shell=True).stdout
-#            print(stdOut)
-    else:
-        sayText = None
-        sfile = None
-    return render_template('say.html', value=sayText, wavFile=sfile)
+            strippedName = "".join([c for c in sText if c.isalpha() or c.isdigit()]).rstrip()
+            sFile = strippedName + lang + gap + spd + ".wav"
+            pFile = "-w" + sFile
+            print("---Saving file as: " + sFile)
+            subprocess.Popen(['espeak', lang, gap, spd, pFile, sText]).stdout
+    return render_template('say.html', sayText=sText, wavFile=sFile)
 
 @app.route("/play/", methods=['GET','POST'])
 def playit():
@@ -66,7 +54,10 @@ def playit():
     else:
         fileChoice = None
     return render_template('play.html', files=fileList, value=fileChoice)
-
+    
+@app.route('/download/<path:filename>')
+def download_file(filename):
+    return send_file(filename, as_attachment=True)
 
 if __name__ == "__main__":
     app.debug = True
