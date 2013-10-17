@@ -24,12 +24,13 @@ long_line_column=72
 
 [files]
 current_page=3
-FILE_NAME_0=678;HTML;0;16;1;1;0;%2Fhome%2Fsteph%2Fprojects%2Fpibot%2Fwebcommander%2Ftemplates%2Fbase.html;0;4
+FILE_NAME_0=701;HTML;0;16;1;1;0;%2Fhome%2Fsteph%2Fprojects%2Fpibot%2Fwebcommander%2Ftemplates%2Fbase.html;0;4
 FILE_NAME_1=299;HTML;0;16;2;1;0;%2Fhome%2Fsteph%2Fprojects%2Fpibot%2Fwebcommander%2Ftemplates%2Fplay.html;0;4
-FILE_NAME_2=700;HTML;0;16;0;1;0;%2Fhome%2Fsteph%2Fprojects%2Fpibot%2Fwebcommander%2Ftemplates%2Fsay.html;0;4
-FILE_NAME_3=1484;Python;0;16;0;1;0;%2Fhome%2Fsteph%2Fprojects%2Fpibot%2Fwebcommander%2Fwebcommander.py;0;4
+FILE_NAME_2=42;HTML;0;16;0;1;0;%2Fhome%2Fsteph%2Fprojects%2Fpibot%2Fwebcommander%2Ftemplates%2Fsay.html;0;4
+FILE_NAME_3=410;Python;0;16;0;1;0;%2Fhome%2Fsteph%2Fprojects%2Fpibot%2Fwebcommander%2Fwebcommander.py;0;4
 FILE_NAME_4=205;Sh;0;16;0;1;0;%2Fhome%2Fsteph%2Fprojects%2Fpibot%2Fwebcommander%2Fprep.sh;0;4
 FILE_NAME_5=87;Sh;0;16;0;1;0;%2Fhome%2Fsteph%2Fprojects%2Fpibot%2Fwebcommander%2Fstart.sh;0;4
+FILE_NAME_6=126;Python;0;16;0;1;0;%2Fhome%2Fsteph%2Fprojects%2Fpibot%2Fpibot.py;0;4
 
 [VTE]
 last_dir=/home/steph
