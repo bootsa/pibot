@@ -105,7 +105,7 @@ class pibot(object):
                 
         def __init__(self):
             """Initialise text-to-speech elements."""
-            self._voices = {"en":"British", "en-us":"American", "en-sc":"Scottish", "rp":"en-rp", "en-n":"Northern", "en-wm","West Midlands", "en-wi":"West Indies"}
+            self._voices = {"en":"British", "en-us":"American", "en-sc":"Scottish", "rp":"en-rp", "en-n":"Northern", "en-wm":"West Midlands", "en-wi":"West Indies"}
             self._variations = {"m1":"Male1", "m2":"Male2", "m3":"Male3", "m4":"Male4", "m5":"Male5", "m6":"Male6", "m7":"Male7", "f1":"Female1", "f2":"Female2", "f3":"Female3", "f4":"Female4", "croak":"Croak", "whisper":"Whisper"}
             self._params_volume = {"default":100, "min":0, "max":200, "units":""}
             self._params_speed = {"default":175, "min":80, "max":450, "units":"words per minute"}
