@@ -186,7 +186,7 @@ class pibot(object):
             
             # Distance pulse travelled in that time is time
             # multiplied by the speed of sound (cm/s)
-            distance = elapsed * 34300
-            
             # That was the distance there and back so halve the value
-            return distance = distance / 2
+            distance = (elapsed * 34300) / 2
+            
+            return distance
