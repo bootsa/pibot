@@ -12,17 +12,18 @@ _params_capStress = {"default":0, "min":0, "max":9999, "units":""}
 
 devnull = open('/dev/null', 'w')
 
-def say(phrase="Hi, I'm PieBot!",volume=_params_volume["default"],voice=0,variation=0,speed=_params_speed["default"],pitch=_params_pitch["default"],capStress=_params_capStress["default"],wordGap=_params_wordGap["default"],saveFile=None):
+def say(phrase="Hi, I'm PieBot!",voice=0,variation=0,speed=_params_speed["default"],pitch=_params_pitch["default"],volume=_params_volume["default"],capStress=_params_capStress["default"],wordGap=_params_wordGap["default"],saveFile=None):
     """Use a text-to-speech engine to say phrases."""
     pLang = "-v" + _voices[voice] + "+" + _variations[variation]
     pGap = "-g" + str(wordGap)
     pSpeed = "-s" + str(speed)
+    pVolume = "-a" + str(volume)
     pPitch = "-p" + str(pitch)
     pCapStress = "-k" + str(capStress)
-    subprocess.Popen(['espeak', pLang, pGap, pSpeed, pPitch, pCapStress, phrase], stdout=devnull, stderr=devnull)
+    subprocess.Popen(['espeak', pLang, pGap, pSpeed, pPitch, pVolume, pCapStress, phrase], stdout=devnull, stderr=devnull)
     if saveFile:
         pFile = "-w" + saveFile
-        subprocess.Popen(['espeak', pLang, pGap, pSpeed, pPitch, pCapStress, pFile, phrase], stdout=devnull, stderr=devnull)
+        subprocess.Popen(['espeak', pLang, pGap, pSpeed, pPitch, pVolume, pCapStress, pFile, phrase], stdout=devnull, stderr=devnull)
         # strippedName = "".join([c for c in saveFile if c.isalpha() or c.isdigit()]).rstrip()
         # sFile = strippedName + lang + gap + spd + ".wav"
         # pFile = "-w" + sFile
