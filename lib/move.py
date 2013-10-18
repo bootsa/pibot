@@ -36,14 +36,14 @@ PWM.init_channel(_dma_r)
 PWM.add_channel_pulse(_dma_l,_l_enable_pin,0,0)
 PWM.add_channel_pulse(_dma_r,_r_enable_pin,0,0)
 
-def stop_all(self):
+def stop_all():
     """Stop all movement."""
     print "stop"
     PWM.clear_channel_gpio(_dma_l, _l_enable_pin)
     PWM.clear_channel_gpio(_dma_r, _r_enable_pin)
 
 #direction, how long to drive for, how fast to drive
-def drive(self,wheel,speed):
+def drive(wheel,speed):
     """Drive each wheel separately."""
     if wheel == LEFT:
         print "left",
@@ -81,10 +81,10 @@ def drive(self,wheel,speed):
     print "pwm:", pwm_amount
     PWM.add_channel_pulse(dma,enable_pin,0,pwm_amount)
 
-def end(self):
+def end():
     """Cleanup after usage."""
     PWM.cleanup()
 
-def error_msg(self,msg):
+def error_msg(msg):
     """Deal with error messages."""
     sys.stderr.write(msg + "\n")

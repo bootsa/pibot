@@ -9,7 +9,7 @@ _params_wordGap = {"default":50, "min":0, "max":99, "units":""}
 _params_capStress = {"default":0, "min":0, "max":9999, "units":""}
         
         
-def say(self,phrase="Hi, I'm PieBot!"),volume=_params_volume["default"],voice=0,variation=0,speed=_params_speed["default"],pitch=_params_pitch["default"],capStress=_params_capStress["default"],wordGap=_params_wordGap["default"],saveFile=NONE):
+def say(phrase="Hi, I'm PieBot!"),volume=_params_volume["default"],voice=0,variation=0,speed=_params_speed["default"],pitch=_params_pitch["default"],capStress=_params_capStress["default"],wordGap=_params_wordGap["default"],saveFile=NONE):
     """Use a text-to-speech engine to say phrases."""
     pLang = "-v" + _voices[voice].key + "+" + _variations[variation].key
     pGap = "-g" + str(wordGap)
@@ -26,7 +26,7 @@ def say(self,phrase="Hi, I'm PieBot!"),volume=_params_volume["default"],voice=0,
         # print("---Saving file as: " + sFile)
         # subprocess.Popen(['espeak', lang, gap, spd, pFile, sText]).stdout
 
-def play(self, audioFile=NONE):
+def play(audioFile=NONE):
     """Play an audio file."""
     print audioFile
     subprocess.Popen(['aplay', audioFile], stdout=subprocess.PIPE)
