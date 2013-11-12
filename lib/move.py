@@ -2,7 +2,6 @@ import RPIO
 from RPIO import PWM
 RPIO.setwarnings(False)
 import sys
-import curses
 
 PWM.setup()
 
@@ -98,6 +97,9 @@ def error_msg(msg):
     sys.stderr.write(msg + "\n")
 
 def imode():
+    import curses
+    stdscr = curses.initscr()
+    curses.halfdelay(1)
     running = 1
     lmotor = 0
     rmotor = 0
