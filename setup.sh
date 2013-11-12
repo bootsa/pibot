@@ -6,7 +6,7 @@ sudo apt-get -y install alsa-utils espeak ipython python-setuptools python-virtu
 
 sudo easy_install -U RPIO
 
-virtualenv flask
+virtualenv webcommander/flask
 
 echo -e "\n"
 
