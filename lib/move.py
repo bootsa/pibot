@@ -8,8 +8,6 @@ import curses
 stdscr = curses.initscr()
 curses.halfdelay(1)
 
-atexit.register(closeCleanly)
-
 PWM.setup()
 
 #get rid of debug output
@@ -158,6 +156,8 @@ def imode():
 
 def closeCleanly():
     curses.endwin()
+
+atexit.register(closeCleanly)
 
 if __name__ == "__main__":
     imode()
