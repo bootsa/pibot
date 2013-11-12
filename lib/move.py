@@ -2,6 +2,7 @@ import RPIO
 from RPIO import PWM
 RPIO.setwarnings(False)
 import sys
+import curses
 
 PWM.setup()
 
@@ -88,3 +89,59 @@ def end():
 def error_msg(msg):
     """Deal with error messages."""
     sys.stderr.write(msg + "\n")
+
+def imode():
+    running = 1
+    lmotor = 0
+    rmotor = 0
+    spd = 100
+    while running:
+        key = stdscr.getch()
+        if key != -1:
+            key = chr(key)
+            if key == "q":
+                lmotor = 0.5
+                rmotor = -1
+            if key == "w":
+                lmotor = 1
+                rmotor = 1
+            if key == "e":
+                lmotor = 1
+                rmotor = 0.5
+            if key == "a":
+                lmotor = -1
+                rmotor = 1
+            if key == "d":
+                lmotor = 1
+                rmotor = -1
+            if key == "z":
+                lmotor = -0.5
+                rmotor = -1
+            if key == "x":
+                lmotor = -1
+                rmotor = -1
+            if key == "c":
+                lmotor = -1
+                rmotor = -0.5
+            if key == "s":
+                lmotor = 0
+                rmotor = 0
+            if key == "=":
+                spd += 10;
+                if spd > 100:
+                    spd = 100
+                print("Speed: ", spd)
+            if key == "-":
+                spd -= 10;
+                if spd < 0:
+                    spd = 0
+                print("Speed: ", spd)
+            if key == "`":
+                running = 0;
+            drive(LEFT,lmotor*spd)
+            drive(RIGHT,rmotor*spd)
+        else:
+            stop_all()
+
+if __name__ == "__main__":
+    imode()
