@@ -82,6 +82,13 @@ def drive(wheel,speed):
     print "pwm:", pwm_amount
     PWM.add_channel_pulse(dma,enable_pin,0,pwm_amount)
 
+def moveme(lSpd=100,rSpd=100,ptime=1):
+    drive(LEFT, lSpd)
+    drive(RIGHT, rSpd)
+    if pTime > 0:
+        time.sleep(pTime)
+        stop_all()
+
 def end():
     """Cleanup after usage."""
     PWM.cleanup()
