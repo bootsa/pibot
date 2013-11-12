@@ -2,6 +2,13 @@ import RPIO
 from RPIO import PWM
 RPIO.setwarnings(False)
 import sys
+import atexit
+import curses
+
+stdscr = curses.initscr()
+curses.halfdelay(1)
+
+atexit.register(closeCleanly)
 
 PWM.setup()
 
@@ -97,9 +104,6 @@ def error_msg(msg):
     sys.stderr.write(msg + "\n")
 
 def imode():
-    import curses
-    stdscr = curses.initscr()
-    curses.halfdelay(1)
     running = 1
     lmotor = 0
     rmotor = 0
@@ -139,18 +143,21 @@ def imode():
                 spd += 10;
                 if spd > 100:
                     spd = 100
-                print("Speed: ", spd)
+                #print("Speed: ", spd)
             if key == "-":
                 spd -= 10;
                 if spd < 0:
                     spd = 0
-                print("Speed: ", spd)
+                #print("Speed: ", spd)
             if key == "`":
                 running = 0;
             drive(LEFT,lmotor*spd)
             drive(RIGHT,rmotor*spd)
         else:
             stop_all()
+
+def closeCleanly:
+    curses.endwin()
 
 if __name__ == "__main__":
     imode()
