@@ -78,7 +78,7 @@ def drive(wheel,speed):
         RPIO.output(forward_pin, False)
         RPIO.output(backward_pin, True)
         # print "backward",
-    else:
+#    else:
         # print "stop",
 
     pwm_amount = int(abs(speed * (1999/100)))
@@ -153,6 +153,7 @@ def imode():
             drive(RIGHT,rmotor*spd)
         else:
             stop_all()
+        stdscr.clear()
 
 def closeCleanly():
     curses.endwin()
