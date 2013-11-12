@@ -114,7 +114,7 @@ def imode():
             key = chr(key)
             if key == "q":
                 lmotor = 0.5
-                rmotor = -1
+                rmotor = 1
             if key == "w":
                 lmotor = 1
                 rmotor = 1
