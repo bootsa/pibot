@@ -156,7 +156,7 @@ def imode():
         else:
             stop_all()
 
-def closeCleanly:
+def closeCleanly():
     curses.endwin()
 
 if __name__ == "__main__":
